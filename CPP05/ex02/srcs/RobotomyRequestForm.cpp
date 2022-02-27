@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:14:16 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 19:37:20 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:16:34 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,15 @@ void 						RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	this->checkGrade(executor);
 	
-	std::cout << "    ..... BbrrrrrrrrrrrrrBrrrrrrrrr ......" << std::endl;
-	std::cout << "... BbrrrrrrrBrrrr BbrrrrrrrBrrrr ......" << std::endl;
-	std::cout << "    ..... BbrrrrrrrrrrrrrBrrrrrrrrr ......" << std::endl;
-	std::cout << "... BbrrrrrrrBrrrr BbrrrrrrrBrrrr ......" << std::endl;
-	std::cout << "    ..... BbrrrrrrrrrrrrrBrrrrrrrrr ......" << std::endl;
-	std::cout << "... BbrrrrrrrBrrrr BbrrrrrrrBrrrr ......" << std::endl;
+	int i;
+	
+	srand((unsigned)time(0));
+	i = rand() % 2;
+	if (i)
+		std::cout << "    ..... BbrrrrrrrrrrrrrBrrrrrrrrr ......" << std::endl;
+	else
+		std::cout << "    ..... Failed ......" << std::endl;
+	i = rand() % 2;
 }
 
 

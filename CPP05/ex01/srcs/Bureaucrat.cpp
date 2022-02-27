@@ -11,13 +11,12 @@ Bureaucrat::Bureaucrat(void) : _name("Empty"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
+	checkGrade();
 	std::cout << Purple "Constructor called for Bureaucrat" Reset << std::endl;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & src )
+Bureaucrat::Bureaucrat( const Bureaucrat & src ) : _name(src.getName()), _grade(src.getGrade())
 {
-	this->_grade = src.getGrade();
-	this->_name = src.getName();
 	std::cout << Blue "Copy constructor called for Bureaucrat" Reset << std::endl;
 }
 
@@ -40,9 +39,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
-	{
 		this->_grade = rhs.getGrade();
-	}
 	return *this;
 }
 
@@ -84,14 +81,16 @@ void				Bureaucrat::worsegrade(void)
 void	Bureaucrat::checkGrade(void)
 {
 	if (this->_grade > 150)
-		throw GradeTooHighException();
-	if (this->_grade < 1)
 		throw GradeTooLowException();
+	if (this->_grade < 1)
+		throw GradeTooHighException();
 }
 
 void	Bureaucrat::signForm(Form &form)
 {
-	if (this->_grade <= form.getGSign())
+	if (form.getSigned() == true)
+		std::cout << "Form is already signed" << std::endl;
+	else if (this->_grade <= form.getGSign())
 	{
 		form.beSigned(*this);
 		std::cout << form.getName() << Cyan " signed the contract of " Reset << this->_name << std::endl;

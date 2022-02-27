@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:14 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 20:02:38 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:23:58 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,26 @@ int	main(int ac, char **av)
 		std::cout << e.what() << '\n';
 	}
 
+	try
+	{
+		Intern	intern;
+		Form	*test;
+	
+		test = intern.makeForm("PresidentialPardonForm", "Ma maman");
+		std::cout << *test << std::endl;
+		delete test;
+		test = intern.makeForm("RobotomyRequestForm", "Mon papa");
+		std::cout << *test << std::endl;
+		delete test;
+		test = intern.makeForm("ShrubberyCreationForm", "arbre");
+		std::cout << *test << std::endl;
+		delete test;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	Intern	intern;
 	Form	*test;
 
@@ -139,3 +159,4 @@ int	main(int ac, char **av)
 	delete test;
 	
 }
+

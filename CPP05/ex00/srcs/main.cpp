@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:14 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 17:49:20 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:54:51 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,31 @@ int	main(int ac, char **av)
 		error2.bettergrade();
 		
 		std::cout << error2 << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	std::cout << "Error cases " << std::endl;
+	try
+	{
+		Bureaucrat	error1("Error Max", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat	error1("Error Max", -3);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat	error1("Error Max", 25920);
 	}
 	catch(const std::exception& e)
 	{
