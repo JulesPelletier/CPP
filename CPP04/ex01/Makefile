@@ -6,7 +6,7 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/27 13:05:28 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/27 20:46:16 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,8 @@ NAME	=	brain
 
 SRCS 	=	srcs/main.cpp 		\
 			srcs/Animal.cpp 		\
-			srcs/WrongAnimal.cpp 		\
 			srcs/Dog.cpp 		\
 			srcs/Cat.cpp 		\
-			srcs/WrongCat.cpp 		\
 			srcs/Brain.cpp 		\
 
 

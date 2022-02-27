@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 16:37:00 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:27:18 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Animal::Animal(void)
 {
-	this->type = "Standard animal";
+	this->_type = "Standard animal";
 	std::cout << " ==== Animal default constructor ==== " << std::endl;
 }
 
@@ -46,7 +46,7 @@ Animal::~Animal(void)
 Animal &				Animal::operator=( Animal const & rhs )
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return *this;
 }
 
@@ -56,7 +56,7 @@ Animal &				Animal::operator=( Animal const & rhs )
 
 std::string	Animal::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void		Animal::makeSound(void) const

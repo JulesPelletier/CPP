@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:33 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 16:37:23 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:29:10 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 Cat::Cat(void)
 {
-	this->type = "Cat";
+	this->_type = "Cat";
 	std::cout << Red " -- Default constructor for cat -- " Reset << std::endl;
 }
 
-Cat::Cat( const Cat & src )
+Cat::Cat( const Cat & src ) : Animal(src)
 {
 	*this = src;
 	std::cout << Red "Copy constructor for cat" Reset << std::endl;
@@ -46,7 +46,7 @@ Cat::~Cat(void)
 Cat &				Cat::operator=( Cat const & rhs )
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return *this;
 }
 
@@ -56,7 +56,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 
 std::string	Cat::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void		Cat::makeSound(void) const

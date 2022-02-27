@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:52:30 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/01 18:45:09 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:42:27 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-MateriaSource::MateriaSource(void)
+MateriaSource::MateriaSource(void) : _size(0)
 {
 	int	i;
 
@@ -29,11 +29,20 @@ MateriaSource::MateriaSource(void)
 	std::cout << "Default constructor for MateriaSource" << std::endl;
 }
 
-MateriaSource::MateriaSource( const MateriaSource & src )
-{
-	*this = src;
-	std::cout << "Copy constructor for MateriaSource" << std::endl;
+MateriaSource::MateriaSource(const MateriaSource& src) {
+
+	for (int i = 0; i < 4; i++) {
+		
+		if (src.source[i] != NULL)
+			this->source[i] = src.source[i]->clone();
+		else
+			this->source[i] = NULL;
+	}
+	this->_size = src._size;
+	std::cout << "A new Materia Source has been copied." << std::endl;
+	return;
 }
+
 
 
 /*
@@ -47,7 +56,8 @@ MateriaSource::~MateriaSource(void)
 	i = 0;
 	while (i < 4)
 	{
-		delete this->source[i];
+		if (this->source[i] != NULL)
+			delete this->source[i];
 		i++;
 	}
 	std::cout << "Default destructor for MateriaSource" << std::endl;
@@ -60,20 +70,16 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	int i;
-
-	i = 0;
-	if (this != &rhs)
-	{
-		while (i < 4)
-		{
-			//delete this->source[i];
-			if (!rhs.source[i])
-				this->source[i] = rhs.source[i]->clone();
-			else
-				this->source[i] = 0;
-			i++;
-		}
+	for (int i = 0; i < this->_size; i++)
+		delete this->source[i];
+		
+	this->_size = rhs._size;
+	for (int i = 0; i < 4; i++) {
+		
+		if (rhs.source[i] != NULL)
+			this->source[i] = rhs.source[i]->clone();
+		else
+			this->source[i] = NULL;
 	}
 	return *this;
 }
@@ -88,20 +94,26 @@ void		MateriaSource::learnMateria(AMateria *m)
 	int	i;
 
 	i = 0;
-	while (i < 4)
-	{
-		if (this->source[i] == 0)
-		{
-			this->source[i] = m;
-			break;
-		}
-		i++;
-	}
-	
+	if (this->_size >= 4)
+		std::cout << "Full " << std::endl;
+	this->source[this->_size] = m;
+	this->_size = this->_size + 1;
+	std::cout << Blue "Added  " Reset << this->source[i]->getType() << Blue " materia " Reset << std::endl;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)
 {
+
+	for (int i = 0; i < 4; i++) {
+	
+		if (this->source[i] && (this->source[i]->getType() == type))
+		{
+			std::cout << Blue "Created " Reset << this->source[i]->getType() << Blue " materia" Reset << std::endl;
+			return (this->source[i]->clone());
+		}
+	}
+	std::cout << "Type not found in Materia Source (NULL returned)." << std::endl;
+	return (NULL);
 	int			i;
 
 	i = 0;

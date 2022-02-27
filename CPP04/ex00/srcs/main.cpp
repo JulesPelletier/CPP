@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:41:15 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:17:58 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:34:40 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,66 @@ int main(void)
 	
 	return 0;
 }
+
+
+/*
+
+// Other main 
+
+int	main(void)
+{
+	//Animal part ------------------------------------------------------------------------------
+	std::cout << Green << "Creating and testing an Animal: " << Reset << std::endl << std::endl;
+	
+	Animal			*meta = new Animal();
+	
+	std::cout << "basic noise of an Animal: ";
+	meta->makeSound();
+	std::cout << std::endl;
+	
+	std::cout << std::endl << Red << "Destroying my Animal" << Reset << std::endl;
+	delete meta;
+	
+
+	//Dog part ---------------------------------------------------------------------------------
+	std::cout << std::endl << Green << "Creating and testing a Dog: " << Reset
+		<< std::endl << std::endl;
+	
+	const Animal		*j = new Dog();
+	
+	std::cout << j->getType() << " make the sound: ";
+	j->makeSound();
+	
+	std::cout << std::endl << Red << "Destroying my Dog" << Reset << std::endl;
+	delete j;
+	
+	
+	//Cat part ----------------------------------------------------------------------------------
+	std::cout << std::endl << Green << "Creating and testing a Cat: " << Reset
+		<< std::endl << std::endl;
+	
+	const Animal		*i = new Cat();
+	
+	std::cout << i->getType() << " make the sound: ";
+	i->makeSound();
+	
+	std::cout << std::endl << Red << "Destroying my Cat" << Reset << std::endl;
+	delete i;
+	
+	
+	//WrongCat part -----------------------------------------------------------------------------
+	std::cout << std::endl << Green << "Creating and testing a WrongCat: " << Reset
+		<< std::endl << std::endl;
+	
+	const WrongAnimal	*k = new WrongCat();
+	
+	std::cout << k->getType() << " make the sound: ";
+	k->makeSound();
+	std::cout << std::endl;
+	
+	std::cout << std::endl << Red << "Destroying my WrongCat" << Reset << std::endl;
+	delete k;
+
+	return (0);
+}
+*/

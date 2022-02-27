@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:25:55 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:42:07 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:38:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,6 @@ std::string	Brain::getIdeas(int i) const
 {
 	return (this->ideas[i]);
 }
-
-std::ostream &			operator<<( std::ostream & o, Brain const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

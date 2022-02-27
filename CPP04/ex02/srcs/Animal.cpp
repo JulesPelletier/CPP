@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/27 18:34:06 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:57:10 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
+
+AAnimal::AAnimal(void)
+{
+	std::cout << " ==== Animal default constructor ==== " << std::endl;
+}
+
+AAnimal::AAnimal(AAnimal const &src)
+{
+	*this = src;
+	std::cout << " ==== Animal copy constructor ==== " << std::endl;
+}
 
 AAnimal::~AAnimal(void)
 {
@@ -55,12 +66,7 @@ std::string	AAnimal::getType(void) const
 
 void		AAnimal::makeSound(void) const
 {
-	if (this->type == "Dog")
-		std::cout << "** Bark Bark Bark **" << std::endl;
-	else if (this->type == "Cat")
-		std::cout << "** Meowww Meowww Meowww **" << std::endl;
-	else
-		std::cout << "** can't define a sound for the standard animal **" << std::endl;
+	std::cout << "** can't define a sound for the standard animal **" << std::endl;
 }
 
 /*

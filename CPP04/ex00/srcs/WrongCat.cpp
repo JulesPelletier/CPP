@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:33 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 16:59:44 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:30:49 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 WrongCat::WrongCat(void)
 {
-	this->type = "Cat";
+	this->_type = "Wrong Cat";
 	std::cout << Red " -- Default constructor for WRONG cat -- " Reset << std::endl;
 }
 
@@ -46,7 +46,7 @@ WrongCat::~WrongCat(void)
 WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return *this;
 }
 
@@ -56,12 +56,12 @@ WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 
 std::string	WrongCat::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void		WrongCat::makeSound(void) const
 {
-	std::cout << "** Bark Bark Bark **" << std::endl;
+	std::cout << " ** Miaow Miaow Miaow ** " << std::endl;
 }
 
 /*

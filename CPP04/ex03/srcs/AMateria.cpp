@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:42:00 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 16:12:23 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:24:43 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : type("default")
 {
 	std::cout << Blue "Default constructor for AMateria" Reset << std::endl;
 }
 
 AMateria::AMateria( const AMateria & src )
 {
-	*this = src;
+	if (this->type.empty())
+		std::cout << Red "Constructor not possible" Reset << std::endl;
+	else
+		*this = src;
 	std::cout << Blue "Copy constructor for AMateria" Reset << std::endl;
 }
 

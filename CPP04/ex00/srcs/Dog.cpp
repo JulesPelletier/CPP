@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:25 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 16:57:52 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:29:17 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 Dog::Dog(void)
 {
 	std::cout << Blue " -- Default constructor for dog --" Reset << std::endl;
-	this->type = "Dog";
+	this->_type = "Dog";
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog & src ) : Animal(src)
 {
 	*this = src;
 	std::cout << Blue "Copy constructor for dog" Reset << std::endl;
@@ -46,7 +46,7 @@ Dog::~Dog(void)
 Dog &				Dog::operator=( Dog const & rhs )
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return *this;
 }
 
@@ -56,7 +56,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 
 std::string	Dog::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void		Dog::makeSound(void) const

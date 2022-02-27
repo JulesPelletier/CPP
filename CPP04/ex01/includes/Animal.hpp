@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/27 15:34:42 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:47:22 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Animal
 
 		Animal &				operator=( Animal const & rhs );
 		std::string				getType(void) const;
-		void					makeSound(void) const;
+		virtual void			makeSound(void) const;
 		virtual Brain			*getBrain(void) const = 0;
 		
 	protected:

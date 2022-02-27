@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:53:04 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/01 18:46:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:36:05 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class MateriaSource : public IMateriaSource
 
 	private:
 		AMateria			*source[4];
+		int					_size;
 };
 
 

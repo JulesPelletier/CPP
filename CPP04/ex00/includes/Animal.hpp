@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 16:24:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:26:29 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Animal
 		virtual void			makeSound(void) const;
 		
 	protected:
-		std::string		type;
+		std::string		_type;
 
 	private:
 		

@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/27 13:10:10 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:44:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,6 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	o << i.getType();
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -68,12 +61,7 @@ std::string	Animal::getType(void) const
 
 void		Animal::makeSound(void) const
 {
-	if (this->type == "Dog")
-		std::cout << "** Bark Bark Bark **" << std::endl;
-	else if (this->type == "Cat")
-		std::cout << "** Meowww Meowww Meowww **" << std::endl;
-	else
-		std::cout << "** can't define a sound for the standard animal **" << std::endl;
+	std::cout << " ** can't define a sound for your animal ** " << std::endl;
 }
 
 /*

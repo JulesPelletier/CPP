@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 16:59:27 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:30:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 WrongAnimal::WrongAnimal(void)
 {
-	this->type = "Standard wrong animal";
+	this->_type = "Standard wrong animal";
 	std::cout << " ==== WRONG Animal default constructor ==== " << std::endl;
 }
 
@@ -35,7 +35,7 @@ WrongAnimal::WrongAnimal( const WrongAnimal & src )
 
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << " ==== Animal destructor ==== " << std::endl;
+	std::cout << " ==== WRONG Animal destructor ==== " << std::endl;
 }
 
 
@@ -46,7 +46,7 @@ WrongAnimal::~WrongAnimal(void)
 WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
 	if (this != &rhs)
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	return *this;
 }
 
@@ -56,17 +56,11 @@ WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 
 std::string	WrongAnimal::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void		WrongAnimal::makeSound(void) const
 {
-	if (this->type == "Cat")
-		std::cout << "** Bark Bark Bark **" << std::endl;
-	else if (this->type == "Dog")
-		std::cout << "** Meowww Meowww Meowww **" << std::endl;
-	else
-		std::cout << "** can't define a sound for the standard animal **" << std::endl;
 }
 
 

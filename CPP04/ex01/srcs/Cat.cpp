@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:33 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/27 18:15:24 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:40:30 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Cat::Cat(void)
 
 Cat::Cat( const Cat & src )
 {
+	this->brain  = new Brain();
 	*this = src;
 	std::cout << Red "Copy constructor for cat" Reset << std::endl;
 }
@@ -84,6 +85,11 @@ std::string	Cat::getType(void) const
 Brain	*Cat::getBrain(void) const
 {
 	return (this->brain);
+}
+
+void		Cat::makeSound(void) const
+{
+	std::cout << " ** Miaow Miaow Miaow ** " Reset << std::endl;
 }
 
 /*
