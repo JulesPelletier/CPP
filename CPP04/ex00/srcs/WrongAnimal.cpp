@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:15:37 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:59:27 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,10 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
-	(void)rhs;
+	if (this != &rhs)
+		this->type = rhs.getType();
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

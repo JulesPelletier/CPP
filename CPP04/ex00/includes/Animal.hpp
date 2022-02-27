@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:04:36 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:24:34 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class Animal
 
 		Animal(void);
 		Animal( Animal const & src );
-		~Animal(void);
+		virtual ~Animal(void);
 
-		Animal &		operator=( Animal const & rhs );
-		std::string		getType(void) const;
-		void			makeSound(void) const;
+		Animal &				operator=( Animal const & rhs );
+		std::string				getType(void) const;
+		virtual void			makeSound(void) const;
 		
 	protected:
 		std::string		type;
@@ -37,7 +37,5 @@ class Animal
 		
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
 
 #endif /* ********************************************************** ANIMAL_H */

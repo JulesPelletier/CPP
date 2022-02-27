@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:48:08 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:12:39 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:25:44 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ class WrongCat : public WrongAnimal
 
 		WrongCat(void);
 		WrongCat( WrongCat const & src );
-		~WrongCat(void);
+		virtual ~WrongCat(void);
 
 		WrongCat &		operator=( WrongCat const & rhs );
 		std::string		getType(void) const;
+		void			makeSound(void) const;
 
 	private:
 

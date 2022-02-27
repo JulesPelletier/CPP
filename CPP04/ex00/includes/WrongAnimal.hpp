@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:15:59 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:25:29 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongAnimal
 
 		WrongAnimal(void);
 		WrongAnimal( WrongAnimal const & src );
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal &		operator=( WrongAnimal const & rhs );
 		std::string		getType(void) const;
