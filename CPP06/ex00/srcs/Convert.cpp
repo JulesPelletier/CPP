@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 20:11:34 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/28 15:23:07 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 21:22:30 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ std::ostream &			operator<<( std::ostream & o, Convert const & i )
 		o << "Double value \t : \t" << i.getDouble() << std::endl;
 	return o;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
