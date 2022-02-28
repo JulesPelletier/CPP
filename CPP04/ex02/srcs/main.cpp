@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:41:15 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 21:00:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:43:32 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../includes/Cat.hpp"
 #include "../includes/Brain.hpp"
 
+/*
 int main(void)
 {
 		
@@ -51,4 +52,28 @@ int main(void)
 	std::cout << std::endl;
 	
 	return 0;
+}
+*/
+
+int main(void)
+{
+
+	// Animal	randomAnimal;
+	// Animal	petitOrni("Ornithorynque");
+	std::cout << std::endl;
+
+	// const Animal* meta = new Animal();
+	// delete	meta;
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
+	std::cout << std::endl << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl << std::endl;
+	i->makeSound();
+	j->makeSound();
+	std::cout << std::endl;
+	delete	i;
+	delete	j;
+	std::cout << std::endl;
+
+	return (0);
 }

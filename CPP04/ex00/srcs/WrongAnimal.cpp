@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 20:30:07 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:18:21 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ std::string	WrongAnimal::getType(void) const
 
 void		WrongAnimal::makeSound(void) const
 {
+	std::cout << " ** random WrongAnimal sound ** " << std::endl;
 }
 
 

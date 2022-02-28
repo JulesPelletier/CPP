@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:25 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/27 18:35:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:50:45 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Dog::Dog(void)
 
 Dog::Dog( const Dog & src )
 {
+	this->brain = new Brain();
 	*this = src;
 	std::cout << Blue "Copy constructor for dog" Reset << std::endl;
 }

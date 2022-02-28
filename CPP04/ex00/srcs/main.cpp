@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:41:15 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 20:34:40 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:21:23 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,28 @@ int main(void)
 	a.makeSound(); 
 	b.makeSound(); 
 
+	delete meta;
+	delete i;
+	delete j;
+
 	std::cout << std::endl;
 	std::cout << Yellow " xxxxxx Other Test ++ xxxxxx " Reset << std::endl;
 	std::cout << std::endl;
 
-	WrongCat	wrongcat;
-	WrongAnimal	wronganimal;
+	WrongAnimal *wronganimal = new WrongAnimal();
+	WrongAnimal *wrongcat= new WrongCat();
 
-	std::cout << wrongcat.getType() << " " << std::endl;
-	std::cout << wronganimal.getType() << " " << std::endl;
+	std::cout << wrongcat->getType() << " " << std::endl;
+	std::cout << wronganimal->getType() << " " << std::endl;
 
 
-	wrongcat.makeSound(); 
-	wronganimal.makeSound(); 
+	wrongcat->makeSound(); 
+	wronganimal->makeSound(); 
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	delete meta;
-	delete i;
-	delete j;
+	delete wrongcat;
+	delete wronganimal;
 	
 	return 0;
 }
