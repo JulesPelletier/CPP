@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:50:42 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 20:03:54 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:19:18 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,32 @@ std::ostream &			operator<<( std::ostream & o, Intern const & i )
 
 Form			*Intern::makeForm(std::string type, std::string target)
 {
-	Form *form;
-	if (type == "PresidentialPardonForm")
-		form = new PresidentialPardonForm(target);
-	if (type == "RobotomyRequestForm")
-		form = new RobotomyRequestForm(target);
-	if (type == "ShrubberyCreationForm")
-		form = new ShrubberyCreationForm(target);
-	std::cout << Green "Intern created the form" Reset << std::endl;
-	return (form);
+	std::string		Form_type[3] = {
+		"shrubbery",
+		"robotomy",
+		"presidential"
+	};
+
+	int i;
+	i = 0;
+	while (i < 3)
+	{
+		if (Form_type[i] == type)
+			break;
+		i++;
+	}
+	if (i < 3)
+		std::cout << Green "Intern created the form" Reset << std::endl;
+	switch(i)
+	{
+		case 0:
+			return (new ShrubberyCreationForm(target));
+		case 1:
+			return (new RobotomyRequestForm(target));
+		case 2:
+			return (new PresidentialPardonForm(target));
+	}
+	return (0);
 }
 
 

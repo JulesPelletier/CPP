@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:14 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 22:23:58 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:18:35 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,33 +130,24 @@ int	main(int ac, char **av)
 		Intern	intern;
 		Form	*test;
 	
-		test = intern.makeForm("PresidentialPardonForm", "Ma maman");
+		test = intern.makeForm("presidential", "Ma maman");
 		std::cout << *test << std::endl;
 		delete test;
-		test = intern.makeForm("RobotomyRequestForm", "Mon papa");
-		std::cout << *test << std::endl;
-		delete test;
-		test = intern.makeForm("ShrubberyCreationForm", "arbre");
-		std::cout << *test << std::endl;
-		delete test;
+	
+		Form	*test2;
+		test2 = intern.makeForm("robotomy", "Mon papa");
+		std::cout << *test2 << std::endl;
+		delete test2;
+	
+		Form	*test3;
+		test3 = intern.makeForm("shrubbery", "arbre");
+		std::cout << *test3 << std::endl;
+		delete test3;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	Intern	intern;
-	Form	*test;
-
-	test = intern.makeForm("PresidentialPardonForm", "Ma maman");
-	std::cout << *test << std::endl;
-	delete test;
-	test = intern.makeForm("RobotomyRequestForm", "Mon papa");
-	std::cout << *test << std::endl;
-	delete test;
-	test = intern.makeForm("ShrubberyCreationForm", "arbre");
-	std::cout << *test << std::endl;
-	delete test;
 	
 }
 

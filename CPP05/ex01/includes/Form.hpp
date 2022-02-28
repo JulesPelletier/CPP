@@ -40,8 +40,8 @@ class Form
 	private:
 		std::string const			_name;
 		bool						_signed;
-		int							_grade_to_sign;
-		int							_grade_to_exe;
+		int			const			_grade_to_sign;
+		int			const			_grade_to_exe;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

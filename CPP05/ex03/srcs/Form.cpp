@@ -9,11 +9,8 @@ Form::Form(void) : _name("default"), _signed(false), _grade_to_sign(75), _grade_
 	std::cout << Yellow "Default constructor called for Form" Reset << std::endl;
 }
 
-Form::Form(std::string name, int gsign, int gexe) : _signed(false)
+Form::Form(std::string name, int gsign, int gexe) : _name(name), _signed(false), _grade_to_sign(gsign), _grade_to_exe(gexe)
 {
-	this->_name = name;
-	this->_grade_to_sign = gsign;
-	this->_grade_to_exe = gexe;
 	std::cout << Yellow "Default constructor called for Form" Reset << std::endl;
 }
 
@@ -41,17 +38,13 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
 		this->_signed = rhs.getSigned();
-		this->_grade_to_exe = rhs.getGExe();
-		this->_grade_to_sign = rhs.getGSign();
 	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << Cyan "Name = " Reset << i.getName() << std::endl;
 	o << Cyan "Is signed = " Reset << i.getSigned() << std::endl;
 	o << Cyan "Grade to sign = " Reset << i.getGSign() << std::endl;
 	o << Cyan "Grade to execute = " Reset << i.getGExe() << std::endl;

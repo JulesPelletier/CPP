@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:01:52 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 19:35:32 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:10:19 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ class Form
 		};
 
 	private:
-		std::string 			_name;
+		std::string const		_name;
 		bool					_signed;
-		int						_grade_to_sign;
-		int						_grade_to_exe;
+		int			const		_grade_to_sign;
+		int			const		_grade_to_exe;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );
