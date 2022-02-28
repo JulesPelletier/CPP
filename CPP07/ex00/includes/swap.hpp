@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 23:20:32 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 23:25:14 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:07:56 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ T const	&min(T const &a, T const &b)
 {
 	if (a < b)
 		return (a);
+	else if (a == b)
+		return (b);
 	else
 		return (b);
 }
@@ -39,6 +41,8 @@ template<typename T>
 T const	&max(T const &a, T const &b)
 {
 	if (a < b)
+		return (b);
+	else if (a == b)
 		return (b);
 	else
 		return (a);

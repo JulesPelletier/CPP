@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 23:26:58 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/08 00:46:54 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:54:01 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include "Colors.hpp"
+# include <array>
 
 template<typename T>
 class Array
@@ -32,6 +33,7 @@ class Array
 		int		const	&size(void) const;
 		int		const	&getElem(int const &index) const;
 		int		const	&addElem(int const &index, int elem);
+		int		const	&getFill(void) const;
 
 
 	private:
@@ -51,7 +53,7 @@ template<typename T>
 Array<T>::Array(int len) : _size(len), _fill(0)
 {
 	if (len == 0)
-		tab = new T[1];
+		tab = new T[0];
 	else
 	{
 		int	i;
@@ -96,6 +98,9 @@ Array<T>			&Array<T>::operator=( Array const & rhs )
 	if ( this != &rhs )
 	{
 		this->_size = rhs.getSize();
+		this->_fill = rhs.getFill();
+		for (int i = 0; i < this->_size; i++)
+			this->tab[i] = rhs.getElem(i);
 	}
 	return *this;
 }
@@ -110,6 +115,12 @@ template<typename T>
 int	const			&Array<T>::getSize(void) const
 {
 	return (this->_size);
+}
+
+template<typename T>
+int	const			&Array<T>::getFill(void) const
+{
+	return (this->_fill);
 }
 
 template<typename T>
