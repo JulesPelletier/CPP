@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 21:37:41 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 23:11:50 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 11:57:33 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	identify(Base *p)
 	B *b = dynamic_cast<B *>(p);
 	C *c = dynamic_cast<C *>(p);
 
-	if (!b && !c)
+	if (a)
 		std::cout << "Type A" << std::endl;
-	if (!a && !c)
+	if (b)
 		std::cout << "Type B" << std::endl;
-	if (!b && !a)
+	if (c)
 		std::cout << "Type C" << std::endl;
 }
 
@@ -89,11 +89,32 @@ int main(void)
 		Base	*base;
 
 		base = generate();
-		std::cout << i << Blue " : \n";
+		std::cout << "Index : " << i << Blue " : \n";
 		identify(base);
 		identify(*base);
-		std::cout << Reset << std::endl;
+		if (base)
+			delete base;
+		std::cout << Reset "Moving on to next type" << std::endl << std::endl;
 		i++;
 	}
 	return (0);
 }
+
+/* 
+
+int main(void)
+{
+	Base	*testing;
+
+	for (int i = 0; i < 15; i++) {
+		testing = generate();
+		identify(testing);
+		identify(*testing);
+		if (testing)
+			delete testing;
+		std::cout << std::endl;
+	}
+	return (0);
+}
+
+*/

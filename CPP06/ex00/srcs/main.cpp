@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 20:11:57 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 23:34:48 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 10:52:12 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int main(int ac, char **av)
 		while (av[i])
 		{
 			Convert	conv(av[i]);
-
-			std::cout << conv << std::endl;
 			i++;
 		}
 	}

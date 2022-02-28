@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 20:11:34 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/27 23:52:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/28 10:59:12 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ Convert::Convert(std::string arg) : _arg(arg)
 		this->_type = CheckParam(arg);
 		this->init(arg);
 		this->convert();
+		std::cout << *this << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << Yellow "Default constructor called for Convert" Reset << std::endl;
+	std::cout << Yellow "String constructor called for Convert" Reset << std::endl;
 }
 
 Convert::Convert( const Convert & src )
@@ -47,8 +48,8 @@ Convert::Convert( const Convert & src )
 	this->_flags[0] = src._flags[0];
 	this->_flags[1] = src._flags[1];
 	this->_flags[2] = src._flags[2];
+	std::cout << Yellow "Copy constructor called for Convert" Reset << std::endl;
 
-	return;
 }
 
 
@@ -70,7 +71,14 @@ Convert &				Convert::operator=( Convert const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_arg = rhs.getArg();
+		this->_type = rhs.getType();
+		this->_c = rhs.getChar();
+		this->_int = rhs.getInt();
+		this->_double = rhs.getDouble();
+		this->_float = rhs.getFloat();
+		this->_flags[0] = rhs._flags[0];
+		this->_flags[1] = rhs._flags[1];
+		this->_flags[2] = rhs._flags[2];
 	}
 	return *this;
 }
@@ -81,21 +89,29 @@ std::ostream &			operator<<( std::ostream & o, Convert const & i )
 	if (i.Flag(0))
 	{
 		if (i.getChar() >= 32 && i.getChar() <= 126)
-			o << "Char value : " << "\"" << i.getChar() << "\"" << std::endl;
+			o << "Char value \t : \t" << "\"" << i.getChar() << "\"" << std::endl;
 		else
-			o << "char not displayable " << std::endl;
+			o << "Char \t\t : \tnot displayable " << std::endl;
 	}
 	else
-		o << "char: impossible" << std::endl;
+		o << "Char \t\t : \timpossible" << std::endl;
 	if (i.Flag(1))
-		o << "Int value : " << i.getInt()  << std::endl;
+		o << "Int value \t : \t" << i.getInt()  << std::endl;
 	else
-		o << "Int not in range : " << i.getInt() << std::endl;
+		o << "Int \t\t : \timpossible" << std::endl;
 	if (i.Flag(2))
-			o << "Float value : " << std::setprecision(1) << i.getFloat() << std::endl;
+	{
+		if (i.getFloat() == static_cast<float>(i.getInt()))
+			o << "Float value \t : \t" << std::setprecision(1) << std::fixed << i.getFloat() << "f" << std::endl;
+		else
+			o << "Float value \t : \t" << i.getFloat() << "f" << std::endl;
+	}
 	else
-		o << "Float : impossible" << std::endl;
-	o << "Double value : " << std::setprecision(1) << i.getDouble() << std::endl;
+		o << "Float \t\t : \timpossible" << std::endl;
+	if (i.getDouble() == static_cast<double>(i.getInt()))  
+		o << "Double value \t : \t" << std::setprecision(1) << std::fixed << i.getDouble() << std::endl;
+	else
+		o << "Double value \t : \t" << i.getDouble() << std::endl;
 	return o;
 }
 
@@ -110,9 +126,9 @@ void	Convert::init(const std::string &str)
 	this->_float = 0;
 	this->_int = 0;
 	this->_double = 0;
-	this->_flags[0] = 0;
-	this->_flags[1] = 0;
-	this->_flags[2] = 0;
+	this->_flags[0] = 1;
+	this->_flags[1] = 1;
+	this->_flags[2] = 1;
 
 	if (this->_type == 'C')
 		this->_c = str[0];
@@ -130,6 +146,8 @@ void	Convert::init(const std::string &str)
 		this->_double = strtod(str.c_str(), NULL);
 	else if (this->_type == 'F')
 		this->_float = atof(str.c_str());
+	else
+		throw Convert::Invalid();
 }
 
 void	Convert::convert(void)
@@ -350,7 +368,7 @@ Convert::Invalid::~Invalid() throw() {}
 
 const char* Convert::Invalid::what() const throw() 
 {
-	return ("Conversion failed: You didn't enter a valid C++ literal that can be converted.\nTry again!");
+	return ("ERROR : param invalid\n");
 }
 
 Convert::MaxInt::MaxInt() throw() {}
@@ -359,7 +377,7 @@ Convert::MaxInt::~MaxInt() throw() {}
 
 const char* Convert::MaxInt::what() const throw() 
 {
-	return ("Conversion failed: You didn't enter a valid C++ literal that can be converted.\nTry again!");
+	return ("ERROR : int above int max or below int min\n");
 }
 
 
