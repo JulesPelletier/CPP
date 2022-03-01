@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 23:30:10 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/28 12:39:11 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/03/01 02:30:44 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 	char	char4[4] = {'1', '2', '3', '4'};
 	
 	std::cout << std::endl;
-	std::cout << Yellow " ==== Function2  ==== " Reset << std::endl;
+	std::cout << Yellow " ==== Function3  ==== " Reset << std::endl;
 	iter(char3, 4, ::function2);
 	std::cout << std::endl;
 
@@ -63,7 +63,6 @@ int	main(int ac, char **av)
 	std::cout << std::endl;
 
 }
-
 /*
 
 int main(void)
@@ -78,5 +77,37 @@ int main(void)
 	};
 	std::cout << "--- Testing string ---" << std::endl;
 	iter(ts, 3, function3);
+}
+*/
+
+/*
+class Awesome
+{
+	public:
+		Awesome(void) : _n(42) {return ;}
+		int	get(void) const{ return this->_n;}
+
+	private:
+		int _n;
+
+};
+
+std::ostream &operator<<(std::ostream &o, Awesome const &rhs) {o << rhs.get(); return o;}
+
+template<typename T>
+void	print(T const &x)
+{
+	std::cout << x << std::endl;
+	return ;
+}
+
+int main(void)
+{
+	int tab[] = {0, 1, 2, 3, 4};
+	Awesome tab2[5];
+
+	iter (tab, 5, print);
+	iter(tab2, 5, print);
+	return (0);
 }
 */

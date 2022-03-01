@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 23:26:58 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/28 12:54:01 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/03/01 02:41:49 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ class Array
 		~Array(void);
 
 		Array 			&operator=( Array const & rhs );
-		T				&operator[](int const &index);
+		T 				&operator[](int const &index);
+
 		int		const	&getSize(void) const;
 		int		const	&size(void) const;
 		int		const	&getElem(int const &index) const;
@@ -108,7 +109,9 @@ Array<T>			&Array<T>::operator=( Array const & rhs )
 template<typename T>
 T 					&Array<T>::operator[](int const &index)
 {
-	return (this->getElem(index));
+	if (index < 0 || index >= this->_size || !this->tab)
+		throw std::exception();
+	return (this->tab[index]);
 }
 
 template<typename T>

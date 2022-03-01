@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 23:30:10 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/28 12:55:35 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/03/01 02:41:05 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ int	main(int ac, char **av)
 	dup.addElem(2, -3);
 	dup.addElem(3, 3);
 
+	std::cout << Blue" ===== Checking Operator ===== " Reset << std::endl;
+	std::cout << "Tab[0] : " << tab[0] << " | Dup[0] : " << dup.getElem(0) << std::endl;
+	std::cout << "Tab[1] : " << tab[1] << " | Dup[1] : " << dup.getElem(1) << std::endl;
+	std::cout << "Tab[2] : " << tab[2] << " | Dup[2] : " << dup.getElem(2) << std::endl;
+	std::cout << "Tab[3] : " << tab[3] << " | Dup[3] : " << dup.getElem(3) << std::endl;
+	
 	std::cout << Blue" ===== Printing Changed Dup ===== " Reset << std::endl;
 	std::cout << "Tab[0] : " << tab.getElem(0) << " | Dup[0] : " << dup.getElem(0) << std::endl;
 	std::cout << "Tab[1] : " << tab.getElem(1) << " | Dup[1] : " << dup.getElem(1) << std::endl;
@@ -67,12 +73,13 @@ int	main(int ac, char **av)
 	std::cout << "Tab[3] : " << tab.getElem(3) << " | Dup[3] : " << dup.getElem(3) << std::endl;
 
 
-	std::cout << Blue" ===== Testint special case ===== " Reset << std::endl;
+	std::cout << Blue" ===== Testint special cases ===== " Reset << std::endl;
 	int *a = new int();
 	int *b = new int(4);
 	std::cout << "A : " << *a << std::endl;
 	std::cout << "B : " << *b << std::endl;
-
-
+	delete a;
+	delete b;
+	
 	return (0);
 }
